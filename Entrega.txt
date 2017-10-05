@@ -1,3 +1,5 @@
 pi dni,apellido,nombre,fechaNac ((pi nroCte (sigma dni > 30000000 (Cliente))) natural join (pi nroEmp,nroCte (Reparacion)) natural join Empleado)
 pi nombreT,email,telefono (sigma nroTaller > 600 (TallerDBicicleta))
 pi dni,apellido,nombre ((pi nroCte (pi nroTaller (sigma nombreT = 'Y' (TallerDBicicleta)) natural join Reparacion) union (pi nroCte (sigma valor > 1000 (Reparacion)))) natural join Cliente)
+pi dni,nombre (Empleado ⨝ (pi nroEmp (pi nroEmp (Empleado)) - (pi nroEmp (Reparacion))))
+Empleado - (sigma nroEmp = 6 (Empleado))
