@@ -25,3 +25,5 @@ SQL
 
 delete from empleado where nroEmp = 6;
 SELECT DISTINCT dni,apellido,nombre,fechaNac FROM `reparacion` `Rep` INNER JOIN `empleado` `Emp` ON `Rep`.`nroEmp`=`Emp`.`nroEmp` WHERE fecha BETWEEN '2017-01-01' and '2017-12-31';
+SELECT dni,apellido,nombre, COUNT(`reparacion`.`nroEmp`) FROM `reparacion` INNER JOIN empleado ON `reparacion`.`nroEmp` = `empleado`.`nroEmp` GROUP BY `reparacion`.`nroEmp`;
+SELECT nombreT,direccion,telefono FROM `tallerdbicicleta` WHERE nombreT LIKE "%taller%" ORDER BY nombreT,direccion DESC;
