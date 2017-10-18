@@ -1,3 +1,5 @@
+AR
+
 pi dni,apellido,nombre,fechaNac ((pi nroCte (sigma dni > 30000000 (Cliente))) natural join (pi nroEmp,nroCte (Reparacion)) natural join Empleado)
 pi nombreT,email,telefono (sigma nroTaller > 600 (TallerDBicicleta))
 pi dni,apellido,nombre ((pi nroCte (pi nroTaller (sigma nombreT = 'Y' (TallerDBicicleta)) natural join (pi nroCte, nroTaller (Reparacion ⨝ Empleado))) union (pi nroCte (sigma valor > 1000 (Reparacion)))) natural join Cliente)
@@ -18,3 +20,8 @@ OPCION RIBER
 4)idem
 
 5)idem
+
+SQL
+
+delete from empleado where nroEmp = 6;
+SELECT DISTINCT dni,apellido,nombre,fechaNac FROM `reparacion` `Rep` INNER JOIN `empleado` `Emp` ON `Rep`.`nroEmp`=`Emp`.`nroEmp` WHERE fecha BETWEEN '2017-01-01' and '2017-12-31';
