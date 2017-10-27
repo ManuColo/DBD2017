@@ -22,10 +22,4 @@ SELECT DISTINCT dni,apellido,nombre,fechaNac FROM `reparacion` `Rep` INNER JOIN 
 SELECT dni,apellido,nombre, COUNT(`reparacion`.`nroEmp`) FROM `reparacion` INNER JOIN empleado ON `reparacion`.`nroEmp` = `empleado`.`nroEmp` GROUP BY `reparacion`.`nroEmp`;
 SELECT nombreT,direccion,telefono FROM `tallerdbicicleta` WHERE nombreT LIKE "%taller%" ORDER BY nombreT,direccion DESC;
 SELECT dni,apellido,nombre, COUNT(`reparacion`.`nroCte`) FROM `reparacion` INNER JOIN `cliente` ON `reparacion`.`nroCte` = `cliente`.`nroCte` GROUP BY `reparacion`.`nroCte` HAVING COUNT(`reparacion`.`nroCte`) > 5;
-SELECT DISTINCT nombreT,direccion,telefono
-	FROM `reparacion` `Rep` 
-    INNER JOIN `empleado` `Emp` ON `Rep`.`nroEmp`=`Emp`.`nroEmp` 
-    INNER JOIN `tallerdbicicleta` `T` ON `T`.`nroTaller`=`Emp`.`nroTaller` 
-    WHERE fecha BETWEEN '2017-01-01' and '2017-01-31'
-NOT IN
-(SELECT DISTINCT nombreT FROM `reparacion` `Rep` INNER JOIN `empleado` `Emp` ON `Rep`.`nroEmp`=`Emp`.`nroEmp` INNER JOIN `tallerdbicicleta` `T` ON `T`.`nroTaller`=`Emp`.`nroTaller` WHERE fecha BETWEEN '2017-02-01' and '2017-02-29' )
+SELECT DISTINCT nombreT,direccion,telefono FROM `reparacion` `Rep` INNER JOIN `empleado` `Emp` ON `Rep`.`nroEmp`=`Emp`.`nroEmp` INNER JOIN `tallerdbicicleta` `T` ON `T`.`nroTaller`=`Emp`.`nroTaller` WHERE fecha BETWEEN '2017-01-01' and '2017-01-31' AND nombreT NOT IN (SELECT DISTINCT nombreT FROM `reparacion` `Rep` INNER JOIN `empleado` `Emp` ON `Rep`.`nroEmp`=`Emp`.`nroEmp` INNER JOIN `tallerdbicicleta` `T` ON `T`.`nroTaller`=`Emp`.`nroTaller` WHERE fecha BETWEEN '2017-02-01' and '2017-02-29')
