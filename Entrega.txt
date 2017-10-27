@@ -12,14 +12,8 @@ OPCION RIBER
 1)
 π dni, apellido, nombre, fechaNac ((π Reparacion.nroEmp ((σ dni>30000000 (Cliente)) |X| Reparacion)) |X| (Empleado))
 
-2)idem
-
 3)
 π dni, apellido, nombre ((Cliente) |X| (π nroCte (σ nombreT = 'Y' ((TallerDBicicleta) |X| (π nroCte, nroTaller (Reparacion |X| Empleado)))))) ∪ π dni, apellido, nombre ((σ valor > 1000 (Reparacion)) |X| (Cliente))
-
-4)idem
-
-5)idem
 
 SQL
 
